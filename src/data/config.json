@@ -2,9 +2,10 @@
     "MENU":{
         "ITEMS":
             [
-                {"name":"Radicals",
-                "subitems":[{"name":"Learn"}, {"name":"Test"}]},
-                {"name":"HSK1"}
+                {"name":"Home"},
+                {"name":"Learn"},
+                {"name":"Test"},
+                {"name":"About Me"}
             ]
     }
 }
