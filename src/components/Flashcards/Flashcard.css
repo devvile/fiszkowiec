@@ -13,6 +13,18 @@
     border-radius: 8px 8px 0 0;
 }
 
+.flashcard--covered {
+    background-color:#495057;
+    position:relative;
+}
+.flashcard__character--covered{
+    font-size: 6rem;
+    color:white;
+    position: absolute;
+    left:26%;
+    bottom:-45px
+}
+
 .flashcard__character {
     font-size: 40px;
     margin: 15px 0 5px 0;
