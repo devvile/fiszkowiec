@@ -1,0 +1,13 @@
+.menu__item{
+    background-color: #6c757d ;
+    width: 200px;
+    list-style: none;
+    padding: 10px;
+    margin:0;
+    color:white;
+    border: 1px solid #212529;
+}
+
+.menu__item:hover{
+    background-color: #adb5bd ;
+}
