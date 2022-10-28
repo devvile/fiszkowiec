@@ -3,7 +3,7 @@ import './FlashcardTest.css'
 
 const FlashcardTest= (props)=>{
     const config = props;
-    return (<section className="Flashcard-test">
+    return (<section className={"Flashcard-test " + props.classes}>
         {props.cards.map(flashcard=>{
             return <Flashcard flashcardData={flashcard} key={Math.random()}></Flashcard>
         })}

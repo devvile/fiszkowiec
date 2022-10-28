@@ -1,5 +1,10 @@
 .Flashcard-test{
     display: flex;
     flex-wrap: wrap;
-    width: 80vw;
+    width: 76vw;
+    padding:30px
+}
+
+.display-none{
+    display: none;
 }

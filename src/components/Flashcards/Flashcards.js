@@ -1,8 +1,14 @@
-import FlashcardTest from "./FlashcardTest";
+import { useState } from "react";
 
+import FlashcardsConfig from "./FlashcardsConfig";
+import './Flashcards.css'
 
 const Flashcards = (props) =>{
-    return (<FlashcardTest cards={props.data}></FlashcardTest>)
+    return (
+    <section className='flashcards-workspace'>
+        <FlashcardsConfig dictionary={props.dictionary}></FlashcardsConfig>
+    </section>
+    )
 }
 
 export default Flashcards;

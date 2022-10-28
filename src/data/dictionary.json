@@ -1,5 +1,6 @@
 {"WORDS":[
-    {"character": "一", "category":"radical", "meaning":"jeden", "pinyin":"yī", "key": 1},
+    {"character": "狗", "category":"animals", "meaning":"pies", "pinyin":"gǒu"},
+    {"character": "一", "category":"radical", "meaning":"jeden", "pinyin":"yī"},
     {"character": "丨", "category":"radical", "meaning":"linia", "pinyin":"shù"},
     {"character": "丶", "category":"radical", "meaning":"kropka", "pinyin":"diǎn"},
     {"character": "丿", "category":"radical", "meaning":"cięcie", "pinyin":"piě"},
