@@ -1,4 +1,5 @@
 import MenuItem from "./MenuItem"; 
+import './Menu.css'
 
 const Menu = (props) =>{
     const clickedItemHandler = (itemName)=>{
@@ -7,7 +8,7 @@ const Menu = (props) =>{
 
 
     return (
-    <ul>
+    <ul className="menu">
         {props.items.map(item=>{
             return <MenuItem itemData={item} key={Math.random()} getClickedItem={clickedItemHandler}></MenuItem>
         })}

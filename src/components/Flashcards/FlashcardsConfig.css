@@ -10,7 +10,32 @@
     font-size: 1.5rem;
     position: absolute;
     bottom:50px;
-    right:70px;
+    right:80px;
+}
+
+.flashcards-options{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: flex-start;
+}
+
+.flashcards-options__item, .config-form-categories-list__item{
+    margin:10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flashcards-split-input__control, .flashcards-timer-input__control{
+    margin:  0  0 0 10px;
+}
+
+.flashcards-split-input__control--nomargin{
+    margin: 0;
+}
+.flashcards-categories{
+    display: flex;
+    flex-direction: column;
 }
 
 .config-form{
@@ -20,6 +45,10 @@
     display: flex;
     justify-content: space-around;
     position: relative;
+}
+
+.categories-list-item__radio-control{
+    margin:0 10px;
 }
 
 .config-form-categories-list{
@@ -40,6 +69,6 @@
 }
 
 .flashcards-number-input__control{
-    width: 50px;
-    margin:20px;
+    width: 40px;
+    margin: 0 0 0 20px;
 }
