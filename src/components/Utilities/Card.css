@@ -1,4 +1,8 @@
 .Card {
     border-radius: 10px;
-    filter: drop-shadow(5px 5px 4px #495057)
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
 }

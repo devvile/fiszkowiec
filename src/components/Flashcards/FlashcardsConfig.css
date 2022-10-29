@@ -1,0 +1,45 @@
+.config-header{
+    margin:0;
+    padding:10px 0;
+    background-color: #2f4550;
+    color: white;
+    flex-basis: 100%;
+}
+
+.config-form-button{
+    font-size: 1.5rem;
+    position: absolute;
+    bottom:50px;
+    right:70px;
+}
+
+.config-form{
+    min-height: 30vh;
+    width: 100%;
+    padding:50px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.config-form-categories-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.config-footer{
+    background-color: #2f4550;
+    height: 20px;
+    width: 100%;
+}
+
+.config-form-categories-list__item{
+    margin:10px;
+}
+
+.flashcards-number-input__control{
+    width: 50px;
+    margin:20px;
+}

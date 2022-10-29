@@ -1,16 +1,19 @@
 .App {
   background-color: #e9ecef;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   max-height: 100vh;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 100vh;
+  align-items: center;
   position: relative;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-header {
+  position: absolute;
+  top:0;
   background-color: #212529;
   width: 100%;
   height: 50px;
@@ -29,7 +32,10 @@
 
 .footer{
   background-color: #212529;
-  height: 40px;
+  height: 50px;
+  width: 100%;
   flex-basis: 100%;
+  position: absolute;
+  bottom:0;
 }
 
