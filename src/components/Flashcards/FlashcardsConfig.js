@@ -17,10 +17,6 @@ const FlashcardsConfig = props =>{
         setSplit(e.target.checked)
     };
 
-    const startTestHandler = e =>{
-        console.log('START!')
-    }
-
     function getCategoriesList(props){
         const categoryList = [];
         props.dictionary.forEach(elem=>{
@@ -30,6 +26,27 @@ const FlashcardsConfig = props =>{
         });
         return categoryList;
     };
+
+    const startTest = e =>{
+        const config = getConfig();
+        props.onTestStart(config);
+
+        function getConfig(){
+           const flashcardsNumber =  document.querySelector('.flashcards-number-input__control').value;
+           const splitNumber =  document.querySelector('.flashcards-split-input__control').value;
+           const timer = document.querySelector('#flashcards-timer-input').checked;
+           const categories = Array.from(document.querySelectorAll('[name="category"]'));
+           const chosenCategoriesElements = categories.filter(el=>el.checked);
+           const chosenCategoriesValues = chosenCategoriesElements.map(el=>el=el.value);
+
+           return {
+            flashcardsNumber:flashcardsNumber,
+            splitNumber:splitNumber,
+            timer:timer,
+            category:chosenCategoriesValues
+           }
+        }
+    }
 
 
     return <Card classes='flex'>
@@ -59,10 +76,10 @@ const FlashcardsConfig = props =>{
             <div className="flashcards-categories">
                 <h3>Flashcards Categories:</h3>
                 <ul className="config-form-categories-list">
-                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' className="categories-list-item__radio-control" value={category} onChange={onCategoryChangeHandler} type='radio'></input>{category}</li>)})}
+                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' className="categories-list-item__radio-control" value={category} onChange={onCategoryChangeHandler} type='checkbox'></input>{category}</li>)})}
                 </ul>
             </div>
-            <Button value='Start' onClick={startTestHandler} classes='config-form-button'></Button>
+            <Button value='Start' onClick={startTest} classes='config-form-button'></Button>
         </form>
         <div className="config-footer"></div>
     </Card>
