@@ -1,7 +1,7 @@
 .Flashcard-test{
     display: flex;
     flex-wrap: wrap;
-    width: 76vw;
+    width: 60vw;
     padding:30px
 }
 

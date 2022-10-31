@@ -4,6 +4,7 @@ import Menu from './components/UI/Menu'
 import configData from './data/config.json'
 import dictionary from './data/dictionary.json'
 import Workspace from './components/Workspace/Workspace';
+import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
 function App() {
   const [menuState, setMenuState] = useState('Home');

@@ -12,12 +12,42 @@ const Flashcards = (props) =>{
 
 
     const startTestHandler=(config)=>{
+        console.log(config);
         const selectedCategories = config.category;
         const testFlashcards =  getSelectedCategoriesFlashcards (selectedCategories, props.dictionary);
-        setSelectedFlashcards(testFlashcards);
+        const randomLimitedFlashcards = getRandomCards(config.flashcardsNumber ,testFlashcards);
+
+        setSelectedFlashcards(randomLimitedFlashcards);
         setTestConfig(config);
         setTestStarted(true);
 
+        function getRandomCards(cardsNumber, flashcards){
+            const result = [];
+            let i = 1;
+            while (i<=cardsNumber){
+               const pickedFlashcard = getRandomCard(flashcards);
+               result.push(pickedFlashcard);
+               i++;
+            };
+            console.log(result);
+            return result;
+    
+            function getRandomCard(flashcards){
+                console.log(flashcards);
+                const pickedCard = flashcards[getRandomInt(0,flashcards.length-1)]
+                console.log('PICKED CARD');
+                console.log(pickedCard);
+                //flashcards.splice(flashcards.indexOf(pickedCard),1);
+                
+                return pickedCard
+                
+                function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+            }
+        };
 
         function getSelectedCategoriesFlashcards(categories, dictionary){
             const result = [];
