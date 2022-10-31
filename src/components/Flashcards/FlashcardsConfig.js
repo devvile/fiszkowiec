@@ -9,10 +9,6 @@ const FlashcardsConfig = props =>{
     const [chosenCategory,setChosenCategory] = useState('');
     const [split,setSplit] = useState(false);
 
-    const  onCategoryChangeHandler = (e)=>{
-        setChosenCategory(e.target.value)
-    };
-
     const splitChangeHandler=(e) =>{
         setSplit(e.target.checked)
     };
@@ -76,7 +72,7 @@ const FlashcardsConfig = props =>{
             <div className="flashcards-categories">
                 <h3>Flashcards Categories:</h3>
                 <ul className="config-form-categories-list">
-                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' className="categories-list-item__radio-control" value={category} onChange={onCategoryChangeHandler} type='checkbox'></input>{category}</li>)})}
+                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' className="categories-list-item__radio-control" value={category} type='checkbox'></input>{category}</li>)})}
                 </ul>
             </div>
             <Button value='Start' onClick={startTest} classes='config-form-button'></Button>

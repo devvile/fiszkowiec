@@ -2,9 +2,9 @@ import Flashcard from "./Flashcard";
 import './FlashcardTest.css'
 
 const FlashcardTest= (props)=>{
-    const config = props;
+    console.log(props);
     return (<section className={"Flashcard-test " + props.classes}>
-        {props.cards.map(flashcard=>{
+        {props.dictionary.map(flashcard=>{
             return <Flashcard flashcardData={flashcard} key={Math.random()}></Flashcard>
         })}
     </section>)
