@@ -33,10 +33,7 @@ const Flashcards = (props) =>{
             return result;
     
             function getRandomCard(flashcards){
-                console.log(flashcards);
                 const pickedCard = flashcards[getRandomInt(0,flashcards.length-1)]
-                console.log('PICKED CARD');
-                console.log(pickedCard);
                 //flashcards.splice(flashcards.indexOf(pickedCard),1);
                 
                 return pickedCard

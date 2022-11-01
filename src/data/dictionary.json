@@ -7,13 +7,13 @@
     {"character": "乙", "category":"radical", "meaning":"drugi", "pinyin":"yǐ"},
     {"character": "亅", "category":"radical", "meaning":"hak", "pinyin":"gōu"},
     {"character": "二", "category":"radical", "meaning":"dwa", "pinyin":"èr"},
-    {"character": "亠", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu", "isCovered":true},
-    {"character": "人", "category":"radical", "meaning":"osoba", "pinyin":"rén", "isCovered":true},
-    {"character": "儿", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu"},
-    {"character": "入", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu"},
-    {"character": "八", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu"},
-    {"character": "冂", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu"},
-    {"character": "冖", "category":"radical", "meaning":"pokrywka 2", "pinyin":"tóu"},
-    {"character": "冫", "category":"radical", "meaning":"lód", "pinyin":"tóu"},
-    {"character": "几", "category":"radical", "meaning":"stół", "pinyin":"tóu"}
+    {"character": "亠", "category":"radical", "meaning":"pokrywka", "pinyin":"tóu"},
+    {"character": "人", "category":"radical", "meaning":"osoba", "pinyin":"rén"},
+    {"character": "儿", "category":"radical", "meaning":"nogi", "pinyin":"ér"},
+    {"character": "入", "category":"radical", "meaning":"wejście", "pinyin":"rù"},
+    {"character": "八", "category":"radical", "meaning":"osiem", "pinyin":"bā"},
+    {"character": "冂", "category":"radical", "meaning":"pudełko dolne", "pinyin":"jiǒng"},
+    {"character": "冖", "category":"radical", "meaning":"pokrywka 2", "pinyin":"mì"},
+    {"character": "冫", "category":"radical", "meaning":"lód", "pinyin":"bīng"},
+    {"character": "几", "category":"radical", "meaning":"stół", "pinyin":"jǐ"}
 ]}
