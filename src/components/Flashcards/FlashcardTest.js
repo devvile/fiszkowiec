@@ -4,9 +4,10 @@ import { useState } from "react";
 
 const FlashcardTest= (props)=>{
     const allFlashcards = props.dictionary;
+    console.table(allFlashcards)
     const [remaningFlashcards,setRemainingFlashcards] = useState(allFlashcards)
     let initialRow = getCurrentRow(remaningFlashcards);
-    //coverCards(initialRow);
+    coverCards(initialRow);
     const[currentRow, setCurrentRow] = useState(initialRow);
 
     const state = {
@@ -20,13 +21,11 @@ const FlashcardTest= (props)=>{
         remaningFlashcards.shift();
         setRemainingFlashcards(remaningFlashcards);
         const newRow = getCurrentRow(remaningFlashcards);
-        //coverCards(newRow);
+        coverCards(newRow);
         setCurrentRow(newRow);
     }
 
     function coverCards(row){
-        console.log('currentcards');
-        console.log(row);
         row.forEach(card=>{
             card.isCovered = true;
         });
@@ -37,7 +36,7 @@ const FlashcardTest= (props)=>{
         if(allFlashcards.length>4){
             return allFlashcards.slice(0,4)
         }else{
-            return allFlashcards
+            return allFlashcards.slice(0, allFlashcards.length-1)
         }
 
     }

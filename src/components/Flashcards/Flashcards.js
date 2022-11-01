@@ -34,7 +34,7 @@ const Flashcards = (props) =>{
     
             function getRandomCard(flashcards){
                 const pickedCard = flashcards[getRandomInt(0,flashcards.length-1)]
-                //flashcards.splice(flashcards.indexOf(pickedCard),1);
+                flashcards.splice(flashcards.indexOf(pickedCard),1);
                 
                 return pickedCard
                 
