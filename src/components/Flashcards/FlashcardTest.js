@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const FlashcardTest= (props)=>{
     const allFlashcards = props.dictionary;
-    console.table(allFlashcards)
     const [remaningFlashcards,setRemainingFlashcards] = useState(allFlashcards)
     let initialRow = getCurrentRow(remaningFlashcards);
     coverCards(initialRow);
@@ -19,26 +18,41 @@ const FlashcardTest= (props)=>{
 
     function userClickHandler(e) {
         remaningFlashcards.shift();
-        setRemainingFlashcards(remaningFlashcards);
-        const newRow = getCurrentRow(remaningFlashcards);
-        coverCards(newRow);
-        setCurrentRow(newRow);
-    }
+        if( remaningFlashcards.length>0){
+            setRemainingFlashcards(remaningFlashcards);
+            const newRow = getCurrentRow(remaningFlashcards);
+            coverCards(newRow);
+            setCurrentRow(newRow);
+        }else{
+            endTest();
+        }
+
+    };
 
     function coverCards(row){
-        row.forEach(card=>{
-            card.isCovered = true;
-        });
-        row[0].isCovered = false;
+        if(row.length>0){
+            row.forEach(card=>{
+                card.isCovered = true;
+            });
+            row[0].isCovered = false;
+        }else{
+            endTest()
+        };
+        
     }
 
     function getCurrentRow(allFlashcards){
         if(allFlashcards.length>4){
             return allFlashcards.slice(0,4)
         }else{
-            return allFlashcards.slice(0, allFlashcards.length-1)
+            if(allFlashcards.length>0){
+                return allFlashcards.slice(0, allFlashcards.length-1)
+            }
         }
+    };
 
+    function endTest(){
+        return <h3>Test Ended!</h3>
     }
 
     return (<section className={"Flashcard-test " + props.classes}>
