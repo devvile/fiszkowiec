@@ -4,11 +4,17 @@ import { useState } from "react";
 
 const FlashcardTest= (props)=>{
     const allFlashcards = props.dictionary;
+    const [testIsFinished,setTestFinished] = useState(false);
+
     const [remaningFlashcards,setRemainingFlashcards] = useState(allFlashcards)
     let initialRow = getCurrentRow(remaningFlashcards);
-    coverCards(initialRow);
+    if(initialRow && initialRow.length>0){
+        coverCards(initialRow);
+    }else{
+        console.log('option 2')
+       // setTestFinished(true);
+    };
     const[currentRow, setCurrentRow] = useState(initialRow);
-    const [testIsFinished,setTestFinished] = useState(false);
 
     const state = {
         currentCard:{},
@@ -26,9 +32,8 @@ const FlashcardTest= (props)=>{
             coverCards(newRow);
             setCurrentRow(newRow);
         }else{
-            endTest();
-        }
-
+            setTestFinished(true);
+        }   
     };
 
     function coverCards(row){
@@ -37,10 +42,7 @@ const FlashcardTest= (props)=>{
                 card.isCovered = true;
             });
             row[0].isCovered = false;
-        }else{
-            endTest()
         };
-        
     }
 
     function getCurrentRow(allFlashcards){
@@ -50,20 +52,21 @@ const FlashcardTest= (props)=>{
             if(allFlashcards.length>0){
                 return allFlashcards.slice(0, allFlashcards.lengths)
             }else{
-                endTest()
             }
         }
     };
 
     function endTest(){
+        setTestFinished(true);
         return <h3>Test Ended!</h3>
     }
+
     if(!testIsFinished){
-    return (<section className={"Flashcard-test " + props.classes}>
-        {currentRow.map(flashcard=>{
-            return <Flashcard userClick={userClickHandler} flashcardData={flashcard} key={Math.random()}></Flashcard>
-        })}
-    </section>)
+        return (<section className={"Flashcard-test " + props.classes}>
+            {currentRow.map(flashcard=>{
+                return <Flashcard userClick={userClickHandler} flashcardData={flashcard} key={Math.random()}></Flashcard>
+            })}
+        </section>)
     }else{
         return <h3>Test Finished</h3>
     }
