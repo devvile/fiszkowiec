@@ -39,7 +39,7 @@
 }
 
 .config-form{
-    min-height: 30vh;
+    min-height: 40vh;
     width: 100%;
     padding:50px;
     display: flex;
@@ -49,6 +49,14 @@
 
 .categories-list-item__radio-control{
     margin:0 10px;
+}
+
+.flashcards-categories__title{
+    margin:5px;
+}
+
+.flashcards-categories__subtitle{
+    margin:7px;
 }
 
 .config-form-categories-list{

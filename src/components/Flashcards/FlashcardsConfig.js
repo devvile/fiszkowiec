@@ -6,8 +6,36 @@ import './FlashcardsConfig.css'
 const FlashcardsConfig = props =>{
     const allCategories =  getCategoriesList(props);
     const [flashcardsCategories, setFlashcardsCategories ] = useState(allCategories)
-    const [chosenCategory,setChosenCategory] = useState('');
+    const [categoriesTotal ,setCategoriesTotal] = useState(0);
     const [split,setSplit] = useState(false);
+    const [isChecked, setChecked] = useState(false);
+
+    const itemsSumHandler = (e)=>{
+        const selectedCategories = getChoicesCategories();
+        const chosenCategoriesTotalItems= calculateCategoriesTotalItems(selectedCategories, props.dictionary);
+        setCategoriesTotal(chosenCategoriesTotalItems);
+        setChecked(!isChecked);
+
+        function calculateCategoriesTotalItems(selectedCategories, dictionary){
+            let total = 0;
+            selectedCategories.forEach(category=>{ total += dictionary.filter(item=>item.category==category).length})
+            return total;
+        };
+        
+
+        function getChoicesCategories(){
+            const selectedValues = [];
+            const categoryCheckboxes = document.querySelectorAll('[name="category"]');
+            categoryCheckboxes.forEach(checkbox=>{
+                if(checkbox.checked){
+                    selectedValues.push(checkbox.value)
+                }
+            });
+    
+            return selectedValues;
+        }
+
+    };
 
     const splitChangeHandler=(e) =>{
         setSplit(e.target.checked)
@@ -70,9 +98,10 @@ const FlashcardsConfig = props =>{
                 </div>
             </div>
             <div className="flashcards-categories">
-                <h3>Flashcards Categories:</h3>
+                <h3 className="flashcards-categories__title">Flashcards Categories:</h3>
+                <h4 className="flashcards-categories__subtitle">{`Total items: ${categoriesTotal}`}</h4>
                 <ul className="config-form-categories-list">
-                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' className="categories-list-item__radio-control" value={category} type='checkbox'></input>{category}</li>)})}
+                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' checked ={isChecked} className="categories-list-item__radio-control" onChange={itemsSumHandler} value={category} type='checkbox'></input>{category}</li>)})}
                 </ul>
             </div>
             <Button value='Start' onClick={startTest} classes='config-form-button'></Button>
