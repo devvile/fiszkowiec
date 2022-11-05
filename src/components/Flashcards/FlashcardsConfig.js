@@ -8,13 +8,20 @@ const FlashcardsConfig = props =>{
     const [flashcardsCategories, setFlashcardsCategories ] = useState(allCategories)
     const [categoriesTotal ,setCategoriesTotal] = useState(0);
     const [split,setSplit] = useState(false);
-    const [isChecked, setChecked] = useState(false);
+    const [checkedState, setCheckedState] = useState(
+        new Array(allCategories.length).fill(false)
+    );
+
 
     const itemsSumHandler = (e)=>{
         const selectedCategories = getChoicesCategories();
         const chosenCategoriesTotalItems= calculateCategoriesTotalItems(selectedCategories, props.dictionary);
         setCategoriesTotal(chosenCategoriesTotalItems);
-        setChecked(!isChecked);
+        const checkStateCopy = checkedState;
+        checkStateCopy[e.target.id]= e.target.checked
+        console.log(checkStateCopy);
+        
+        setCheckedState(checkStateCopy);
 
         function calculateCategoriesTotalItems(selectedCategories, dictionary){
             let total = 0;
@@ -101,7 +108,8 @@ const FlashcardsConfig = props =>{
                 <h3 className="flashcards-categories__title">Flashcards Categories:</h3>
                 <h4 className="flashcards-categories__subtitle">{`Total items: ${categoriesTotal}`}</h4>
                 <ul className="config-form-categories-list">
-                    {flashcardsCategories.map((category)=> {return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' checked ={isChecked} className="categories-list-item__radio-control" onChange={itemsSumHandler} value={category} type='checkbox'></input>{category}</li>)})}
+                    {flashcardsCategories.map((category)=> { 
+                        return (<li key={Math.random()} className="config-form-categories-list__item"><input name='category' checked ={checkedState[flashcardsCategories.indexOf(category)]} className="categories-list-item__radio-control" onChange={itemsSumHandler} value={category} id={flashcardsCategories.indexOf(category)} type='checkbox'></input>{category}</li>)})}
                 </ul>
             </div>
             <Button value='Start' onClick={startTest} classes='config-form-button'></Button>
