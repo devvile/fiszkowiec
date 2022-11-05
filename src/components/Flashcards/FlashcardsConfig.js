@@ -4,7 +4,6 @@ import Button from "../UI/Button"
 import './FlashcardsConfig.css'
 
 const FlashcardsConfig = props =>{
-    console.log('Reevaluating')
     const allCategories =  getCategoriesList(props);
     const [flashcardsCategories, setFlashcardsCategories ] = useState(allCategories)
     const [categoriesTotal ,setCategoriesTotal] = useState(0);
@@ -18,16 +17,12 @@ const FlashcardsConfig = props =>{
     const itemsSumHandler = (e)=>{
         const selectedCategories = getChoicesCategories();
         const chosenCategoriesTotalItems= calculateCategoriesTotalItems(selectedCategories, props.dictionary);
-        console.log(chosenCategoriesTotalItems);
         setCategoriesTotal(chosenCategoriesTotalItems);
         const checkStateCopy = [...checkedState];
         checkStateCopy[e.target.id]= e.target.checked
-        console.log(checkStateCopy);
         setCheckedState(checkStateCopy);
 
         function calculateCategoriesTotalItems(selectedCategories, dictionary){
-            console.log(selectedCategories);
-            console.log(dictionary);
             let total = 0;
             selectedCategories.forEach(category=>{ total += dictionary.filter(item=>item.category===category).length})
             return total;

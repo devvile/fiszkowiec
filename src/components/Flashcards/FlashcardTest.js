@@ -8,6 +8,7 @@ const FlashcardTest= (props)=>{
     let initialRow = getCurrentRow(remaningFlashcards);
     coverCards(initialRow);
     const[currentRow, setCurrentRow] = useState(initialRow);
+    const [testIsFinished,setTestFinished] = useState(false);
 
     const state = {
         currentCard:{},
@@ -21,6 +22,7 @@ const FlashcardTest= (props)=>{
         if( remaningFlashcards.length>0){
             setRemainingFlashcards(remaningFlashcards);
             const newRow = getCurrentRow(remaningFlashcards);
+            console.log(newRow);
             coverCards(newRow);
             setCurrentRow(newRow);
         }else{
@@ -46,7 +48,9 @@ const FlashcardTest= (props)=>{
             return allFlashcards.slice(0,4)
         }else{
             if(allFlashcards.length>0){
-                return allFlashcards.slice(0, allFlashcards.length-1)
+                return allFlashcards.slice(0, allFlashcards.lengths)
+            }else{
+                endTest()
             }
         }
     };
@@ -54,12 +58,16 @@ const FlashcardTest= (props)=>{
     function endTest(){
         return <h3>Test Ended!</h3>
     }
-
+    if(!testIsFinished){
     return (<section className={"Flashcard-test " + props.classes}>
         {currentRow.map(flashcard=>{
             return <Flashcard userClick={userClickHandler} flashcardData={flashcard} key={Math.random()}></Flashcard>
         })}
     </section>)
+    }else{
+        return <h3>Test Finished</h3>
+    }
+
 }
 
 export default FlashcardTest;
