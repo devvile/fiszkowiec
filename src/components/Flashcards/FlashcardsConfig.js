@@ -4,6 +4,7 @@ import Button from "../UI/Button"
 import './FlashcardsConfig.css'
 
 const FlashcardsConfig = props =>{
+    console.log('Reevaluating')
     const allCategories =  getCategoriesList(props);
     const [flashcardsCategories, setFlashcardsCategories ] = useState(allCategories)
     const [categoriesTotal ,setCategoriesTotal] = useState(0);
@@ -17,16 +18,18 @@ const FlashcardsConfig = props =>{
     const itemsSumHandler = (e)=>{
         const selectedCategories = getChoicesCategories();
         const chosenCategoriesTotalItems= calculateCategoriesTotalItems(selectedCategories, props.dictionary);
+        console.log(chosenCategoriesTotalItems);
         setCategoriesTotal(chosenCategoriesTotalItems);
-        const checkStateCopy = checkedState;
+        const checkStateCopy = [...checkedState];
         checkStateCopy[e.target.id]= e.target.checked
         console.log(checkStateCopy);
-        
         setCheckedState(checkStateCopy);
 
         function calculateCategoriesTotalItems(selectedCategories, dictionary){
+            console.log(selectedCategories);
+            console.log(dictionary);
             let total = 0;
-            selectedCategories.forEach(category=>{ total += dictionary.filter(item=>item.categor===category).length})
+            selectedCategories.forEach(category=>{ total += dictionary.filter(item=>item.category===category).length})
             return total;
         };
         
@@ -42,7 +45,6 @@ const FlashcardsConfig = props =>{
     
             return selectedValues;
         }
-
     };
 
     const splitChangeHandler=(e) =>{
@@ -51,7 +53,7 @@ const FlashcardsConfig = props =>{
 
     function backClickHandler(){
         setError(false);
-    }
+    };
 
     function getCategoriesList(props){
         const categoryList = [];
@@ -69,7 +71,7 @@ const FlashcardsConfig = props =>{
             props.onTestStart(config);
         }else{
             setError(true);
-        }
+        };
 
         function configIsValid(){
             return inputNotEmpty() && inputNotBiggerThanTotal();
@@ -83,7 +85,7 @@ const FlashcardsConfig = props =>{
                 const inputValue =  document.querySelector('#flashcards-number-input').value;
                 return inputValue <= categoriesTotal;
             };
-        }
+        };
 
         function getConfig(){
            const flashcardsNumber =  document.querySelector('.flashcards-number-input__control').value;
@@ -140,6 +142,7 @@ const FlashcardsConfig = props =>{
             </form>
             <div className="config-footer"></div>
         </Card>
+        
     }else{
         return <Card classes='flex'>
             <h2 className="config-header">Test Settings</h2>
