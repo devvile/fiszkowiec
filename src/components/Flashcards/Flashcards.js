@@ -10,16 +10,18 @@ const Flashcards = (props) =>{
     const [selectedFlashcards,setSelectedFlashcards] = useState([]);
     const testDictionary='';
 
+    const finishTestHandler=()=>{
+        setTestStarted(!testStarted);
+    }
 
     const startTestHandler=(config)=>{
-        console.log(config);
         const selectedCategories = config.category;
         const testFlashcards =  getSelectedCategoriesFlashcards (selectedCategories, props.dictionary);
         const randomLimitedFlashcards = getRandomCards(config.flashcardsNumber ,testFlashcards);
 
         setSelectedFlashcards(randomLimitedFlashcards);
         setTestConfig(config);
-        setTestStarted(true);
+        setTestStarted(!testStarted);
 
         function getRandomCards(cardsNumber, flashcards){
             const result = [];
@@ -59,7 +61,7 @@ const Flashcards = (props) =>{
         return (
             <section className='flashcards-workspace'>
                 {!testStarted && <FlashcardsConfig onTestStart={startTestHandler} dictionary={props.dictionary}></FlashcardsConfig>}
-                {testStarted && <FlashcardTest config ={testConfig} dictionary={selectedFlashcards}></FlashcardTest>}
+                {testStarted && <FlashcardTest onTestFinish = {finishTestHandler} config ={testConfig} dictionary={selectedFlashcards}></FlashcardTest>}
             </section>
             )
     }

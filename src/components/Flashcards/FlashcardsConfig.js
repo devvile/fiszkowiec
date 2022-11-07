@@ -139,7 +139,7 @@ const FlashcardsConfig = props =>{
     }else{
         return <Card title='Error!' classes='flex'>
             <div className="error-body">
-                <h2>Invalid Card Number!</h2>
+                <h2>Invalid Cards Number!</h2>
                 <Button value='Back' onClick={backClickHandler} classes='config-error-button'></Button>
             </div>
         </Card>

@@ -1,9 +1,25 @@
-.Flashcard-test{
+
+.test-results, .Flashcard-test{
     display: flex;
     flex-wrap: wrap;
-    width: 60vw;
+}
+
+.Flashcard-test{
+    min-width: 60vw;
 }
 
 .display-none{
     display: none;
+}
+.Flashcard-test__score, .Flashcard-test__heading{
+    flex-basis: 100%;
+}
+
+.Flashcard-test__score{
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+.test-results{
+    justify-content: center;
 }

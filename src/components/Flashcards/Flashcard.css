@@ -1,7 +1,8 @@
 .flashcard {
     background-color: #e9ecef;
     border: 1px solid black;
-    height: 200px;
+    border-radius: 10px;
+    height: 210px;
     filter: drop-shadow(5px 5px 4px #495057);
     margin:20px;
     width: 200px;

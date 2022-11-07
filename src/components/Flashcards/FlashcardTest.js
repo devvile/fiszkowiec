@@ -38,6 +38,10 @@ const FlashcardTest= (props)=>{
         }   
     };
 
+    function testEndHandler(e){
+        setTestFinished(false);
+    }
+
     function coverCards(row){
         if(row.length>0){
             row.forEach(card=>{
@@ -71,9 +75,10 @@ const FlashcardTest= (props)=>{
         </Card>)
     }else{
         return (
-            <Card classes='Flashcard-test' title='Test Complete'>
-                <h3>Test Finished</h3>
-                <Button value='New Test'></Button>
+            <Card classes='Flashcard-results test-results' title='Test Complete'>
+                <h2 className='Flashcard-test__heading'>Test Finished!</h2>
+                <h4 className='Flashcard-test__score'>Your Score: 10/10</h4>
+                <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='New Test'></Button>
             </Card>
         )
     }
