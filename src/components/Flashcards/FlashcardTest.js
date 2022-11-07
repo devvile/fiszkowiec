@@ -1,6 +1,8 @@
 import Flashcard from "./Flashcard";
 import './FlashcardTest.css'
 import { useState } from "react";
+import Card from "../Utilities/Card";
+import Button from "../UI/Button";
 
 const FlashcardTest= (props)=>{
     const allFlashcards = props.dictionary;
@@ -62,13 +64,18 @@ const FlashcardTest= (props)=>{
     }
 
     if(!testIsFinished){
-        return (<section className={"Flashcard-test " + props.classes}>
+        return (<Card  title='Test Your Skills!' classes={"Flashcard-test " + props.classes}>
             {currentRow.map(flashcard=>{
                 return <Flashcard userClick={userClickHandler} flashcardData={flashcard} key={Math.random()}></Flashcard>
             })}
-        </section>)
+        </Card>)
     }else{
-        return <h3>Test Finished</h3>
+        return (
+            <Card classes='Flashcard-test' title='Test Complete'>
+                <h3>Test Finished</h3>
+                <Button value='New Test'></Button>
+            </Card>
+        )
     }
 
 }

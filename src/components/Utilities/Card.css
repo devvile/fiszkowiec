@@ -1,8 +1,23 @@
 .Card {
-    border-radius: 10px;
+   background-color: white;
 }
 
 .flex{
     display: flex;
     flex-wrap: wrap;
+}
+
+.card-footer{
+    background-color: #2f4550;
+    height: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.card-header{
+    margin:0 0 20px 0;
+    padding:10px 0;
+    background-color: #2f4550;
+    color: white;
+    flex-basis: 100%;
 }

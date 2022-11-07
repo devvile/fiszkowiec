@@ -101,8 +101,7 @@ const FlashcardsConfig = props =>{
 
 
     if(!Error){
-        return <Card classes='flex'>
-            <h2 className="config-header">Test Settings</h2>
+        return <Card title='Test Settings:' classes='flex'>
             <form className="config-form">
                 <div className="flashcards-options">
                     <h3>Flashcards Options:</h3>
@@ -135,17 +134,14 @@ const FlashcardsConfig = props =>{
                 </div>
                 <Button value='Start' onClick={startTest} classes='config-form-button'></Button>
             </form>
-            <div className="config-footer"></div>
         </Card>
         
     }else{
-        return <Card classes='flex'>
-            <h2 className="config-header">Test Settings</h2>
+        return <Card title='Error!' classes='flex'>
             <div className="error-body">
                 <h2>Invalid Card Number!</h2>
                 <Button value='Back' onClick={backClickHandler} classes='config-error-button'></Button>
             </div>
-            <div className="config-footer"></div>
         </Card>
 
     }

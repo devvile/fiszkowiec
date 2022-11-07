@@ -3,7 +3,9 @@ import './Card.css'
 const Card = (props) =>{
 
     return (<article className={`Card ${props.classes}`} onClick={props.clickEvents}>
-        {props.children}
+        <h2 className="card-header">{props.title}</h2>
+            {props.children}
+        <div className="card-footer"></div>
     </article>)
 }
 

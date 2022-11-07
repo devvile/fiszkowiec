@@ -1,10 +1,3 @@
-.config-header{
-    margin:0;
-    padding:10px 0;
-    background-color: #2f4550;
-    color: white;
-    flex-basis: 100%;
-}
 
 .config-form-button{
     font-size: 1.5rem;
@@ -39,7 +32,7 @@
 }
 
 .config-form{
-    min-height: 40vh;
+    min-height: 35vh;
     width: 100%;
     padding:50px;
     display: flex;
@@ -66,11 +59,6 @@
     align-items: flex-start;
 }
 
-.config-footer{
-    background-color: #2f4550;
-    height: 20px;
-    width: 100%;
-}
 
 .config-form-categories-list__item{
     margin:10px;
