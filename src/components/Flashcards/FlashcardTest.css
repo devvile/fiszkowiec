@@ -2,10 +2,11 @@
 .test-results, .Flashcard-test{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .Flashcard-test{
-    min-width: 60vw;
+    min-width: 50vw;
 }
 
 .display-none{

@@ -52,8 +52,8 @@ const FlashcardTest= (props)=>{
     }
 
     function getCurrentRow(allFlashcards){
-        if(allFlashcards.length>4){
-            return allFlashcards.slice(0,4)
+        if(allFlashcards.length>3){
+            return allFlashcards.slice(0,3)
         }else{
             if(allFlashcards.length>0){
                 return allFlashcards.slice(0, allFlashcards.lengths)

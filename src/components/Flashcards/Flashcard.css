@@ -7,6 +7,14 @@
     margin:20px;
     width: 200px;
 }
+.flashcard__answers{
+    align-items: center;
+    background-color:  #495057;
+    display: flex;
+    justify-content: space-around;
+    padding: 6.5px 0;
+    border-radius:  0 0 5px 5px;
+}
 
 .flashcard__header{
     background-color: #495057;
