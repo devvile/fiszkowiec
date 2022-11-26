@@ -31,7 +31,6 @@ const Flashcards = (props) =>{
                result.push(pickedFlashcard);
                i++;
             };
-            console.log(result);
             return result;
     
             function getRandomCard(flashcards){

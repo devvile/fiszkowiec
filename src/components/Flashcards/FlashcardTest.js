@@ -5,10 +5,12 @@ import Card from "../Utilities/Card";
 import Button from "../UI/Button";
 
 const FlashcardTest= (props)=>{
-    const allFlashcards = props.dictionary;
+    const allFlashcards = [...props.dictionary];
+    const flashcardsTotal = props.dictionary.length;
     const [testIsFinished,setTestFinished] = useState(false);
-
+    const [score,setScore] = useState(0);
     const [remaningFlashcards,setRemainingFlashcards] = useState(allFlashcards)
+
     let initialRow = getCurrentRow(remaningFlashcards);
     if(initialRow && initialRow.length>0){
         coverCards(initialRow);
@@ -25,15 +27,20 @@ const FlashcardTest= (props)=>{
         currentRow: []
     }
 
-    function userClickHandler(e) {
+    function userClickHandler(answer) {
         remaningFlashcards.shift();
         if( remaningFlashcards.length>0){
             setRemainingFlashcards(remaningFlashcards);
             const newRow = getCurrentRow(remaningFlashcards);
-            console.log(newRow);
             coverCards(newRow);
+            if(answer) {
+                setScore(score+1);
+            };
             setCurrentRow(newRow);
         }else{
+            if(answer) {
+                setScore(score+1);
+            };
             setTestFinished(true);
         }   
     };
@@ -77,7 +84,7 @@ const FlashcardTest= (props)=>{
         return (
             <Card classes='Flashcard-results test-results' title='Test Complete'>
                 <h2 className='Flashcard-test__heading'>Test Finished!</h2>
-                <h4 className='Flashcard-test__score'>Your Score: 10/10</h4>
+                <h4 className='Flashcard-test__score'>Your Score: {score}/{flashcardsTotal}</h4>
                 <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='New Test'></Button>
             </Card>
         )

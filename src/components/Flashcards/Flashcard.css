@@ -2,6 +2,9 @@
     background-color: #e9ecef;
     border: 1px solid black;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 210px;
     filter: drop-shadow(5px 5px 4px #495057);
     margin:20px;
@@ -10,10 +13,10 @@
 .flashcard__answers{
     align-items: center;
     background-color:  #495057;
+    border-radius:  0 0 5px 5px;
     display: flex;
     justify-content: space-around;
     padding: 6.5px 0;
-    border-radius:  0 0 5px 5px;
 }
 
 .flashcard__header{
@@ -21,12 +24,14 @@
     border-radius: 8px 8px 0 0;
     height: 30px;
     width: 100%;
+    z-index: 10;
 }
 
 .flashcard--covered {
     background-color:#495057;
     position:relative;
 }
+
 .flashcard__character--covered{
     font-size: 6rem;
     color:white;
@@ -42,7 +47,7 @@
 
 .flashcard__meaning{
     background-color: #495057;
-    color:white;
     border-radius:0 0 8px 8px;
-    padding:4px 0px 21px 0px;
+    color:white;
+    padding:11px 0px 20px 0px;
 }

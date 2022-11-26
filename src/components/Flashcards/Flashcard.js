@@ -1,26 +1,37 @@
 import Card from '../Utilities/Card'
 import './Flashcard.css'
 import { useState } from 'react'
-import CorrectIcon from '../UI/CorrectIcon'
-import WrongIcon from '../UI/WrongIcon'
+import CorrectAnswer from '../UI/CorrectAnswer'
+import WrongAnswer from '../UI/WrongAnswer'
 
 const Flashcard = (props) =>{
     const [isClicked, setIsClicked] = useState(false);
+    const [userAnswered, setUserAnswered] = useState(false);
     const [userAnswer, setUserAnswer] = useState(false);
-    
-    const cardClickHandler = () =>{
-        setIsClicked(true);
+
+    const cardChangeHandler = ()=>{
+        if(userAnswered)  {
+            setIsClicked(userAnswer);
+            props.userClick(userAnswer)
+        };
     };
-    //props.userClick
+    
+    const answerClickHandler = (answer)=>{
+        setUserAnswered(true);
+        setUserAnswer(answer);
+    };
 
     if(!props.flashcardData.isCovered){
     return (
-        <article className="flashcard" onClick={cardClickHandler}> 
+        <article className="flashcard" onClick={cardChangeHandler}> 
             <div className='flashcard__header'></div>
             <h2 className='flashcard__character'>{props.flashcardData.character}</h2>
-            <h4>{props.flashcardData.pinyin}</h4>
-            <div className='flashcard__answers'> <CorrectIcon/><WrongIcon/></div>
-            {userAnswer && <h3 className='flashcard__meaning'>{props.flashcardData.meaning}</h3>}
+            {userAnswered && <h4>{props.flashcardData.pinyin}</h4>}
+            {!userAnswered &&  <div className='flashcard__answers'> 
+                <CorrectAnswer onClick={answerClickHandler}/>
+                <WrongAnswer onClick={answerClickHandler}/>
+            </div> }
+            {userAnswered && <h3 className='flashcard__meaning'>{props.flashcardData.meaning}</h3>}
         </article>)
     }else{
         return(
