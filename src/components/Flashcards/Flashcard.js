@@ -26,8 +26,8 @@ const Flashcard = (props) =>{
         <article className="flashcard" onClick={cardChangeHandler}> 
             <div className='flashcard__header'></div>
             <h2 className='flashcard__character'>{props.flashcardData.character}</h2>
-            {userAnswered && <h4>{props.flashcardData.pinyin}</h4>}
-            {userAnswered ? <div className='flashcard__meaning'><h3>{props.flashcardData.meaning}</h3></div> : <div className='flashcard__answers'> 
+            <h4 style={{ visibility: userAnswered? 'visible': 'hidden'}}>{props.flashcardData.pinyin}</h4>
+            {userAnswer ? <div className='flashcard__meaning'><h3>{props.flashcardData.meaning}</h3></div> : <div className='flashcard__answers'> 
                 <CorrectAnswer onClick={answerClickHandler}/>
                 <WrongAnswer onClick={answerClickHandler}/>
             </div> }
