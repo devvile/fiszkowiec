@@ -1,5 +1,5 @@
 .workspace{
     max-width: 50vw;
     background-color: red;
-    height: 50px;
+    min-height: 50px;
 }

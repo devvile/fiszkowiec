@@ -85,7 +85,11 @@ const FlashcardTest= (props)=>{
             <Card classes='Flashcard-results test-results' title='Test Complete'>
                 <h2 className='Flashcard-test__heading'>Test Finished!</h2>
                 <h4 className='Flashcard-test__score'>Your Score: {score}/{flashcardsTotal}</h4>
-                <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='New Test'></Button>
+                <h4 className='Flashcard-test__result-procent'>{(score / flashcardsTotal ) * 100} %</h4>
+                <div className='results-actions'>
+                    <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='New Test'></Button>
+                    <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='Repeat'></Button>
+                </div>
             </Card>
         )
     }

@@ -7,19 +7,33 @@
 
 .Flashcard-test{
     min-width: 50vw;
+    min-height: 40vh;
 }
 
 .display-none{
     display: none;
 }
-.Flashcard-test__score, .Flashcard-test__heading{
+.Flashcard-test__score, .Flashcard-test__heading, .Flashcard-test__score, .Flashcard-test__result-procent{
     flex-basis: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
-.Flashcard-test__score{
-    margin-bottom: 40px;
-    font-size: 1.2rem;
+.results-actions{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
 }
+
+.Flashcard-test__result-procent{
+    margin-bottom: 20px;
+}
+
+.Flashcard-test__score, .Flashcard-test__result-procent{
+    border-top:10px;
+    height: 100%;
+}
+
 
 .test-results{
     justify-content: center;
