@@ -9,15 +9,19 @@ const FlashcardTest= (props)=>{
     const flashcardsTotal = props.dictionary.length;
     const [testIsFinished,setTestFinished] = useState(false);
     const [score,setScore] = useState(0);
-    const [remaningFlashcards,setRemainingFlashcards] = useState(allFlashcards)
+    const [remaniningFlashcards,setRemainingFlashcards] = useState(allFlashcards);
+    const initialRow = prepareInitialRow();
 
-    let initialRow = getCurrentRow(remaningFlashcards);
-    if(initialRow && initialRow.length>0){
-        coverCards(initialRow);
-    }else{
-        console.log('option 2')
-       // setTestFinished(true);
-    };
+    function prepareInitialRow (){
+        let initialRow = getCurrentRow(remaniningFlashcards);
+        if(initialRow && initialRow.length>0){
+            coverCards(initialRow);
+        }else{
+        // setTestFinished(true);
+        };
+        return initialRow;
+    }
+
     const[currentRow, setCurrentRow] = useState(initialRow);
 
     const state = {
@@ -27,11 +31,18 @@ const FlashcardTest= (props)=>{
         currentRow: []
     }
 
+    const restartHandler = ()=>{
+        setRemainingFlashcards(allFlashcards);
+        setScore(0);
+        setCurrentRow( getCurrentRow(allFlashcards));
+        setTestFinished(false);
+    }
+
     function userClickHandler(answer) {
-        remaningFlashcards.shift();
-        if( remaningFlashcards.length>0){
-            setRemainingFlashcards(remaningFlashcards);
-            const newRow = getCurrentRow(remaningFlashcards);
+        remaniningFlashcards.shift();
+        if( remaniningFlashcards.length>0){
+            setRemainingFlashcards(remaniningFlashcards);
+            const newRow = getCurrentRow(remaniningFlashcards);
             coverCards(newRow);
             if(answer) {
                 setScore(score+1);
@@ -88,7 +99,7 @@ const FlashcardTest= (props)=>{
                 <h4 className='Flashcard-test__result-procent'>{(score / flashcardsTotal ) * 100} %</h4>
                 <div className='results-actions'>
                     <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='New Test'></Button>
-                    <Button classes='Flashcard-test__btn results-button' onClick={props.onTestFinish}  value='Repeat'></Button>
+                    <Button classes='Flashcard-test__btn results-button' onClick={restartHandler}  value='Repeat'></Button>
                 </div>
             </Card>
         )

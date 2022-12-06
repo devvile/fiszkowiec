@@ -14,6 +14,7 @@ const Flashcards = (props) =>{
         setTestStarted(!testStarted);
     }
 
+
     const startTestHandler=(config)=>{
         const selectedCategories = config.category;
         const testFlashcards =  getSelectedCategoriesFlashcards (selectedCategories, props.dictionary);
@@ -60,7 +61,7 @@ const Flashcards = (props) =>{
         return (
             <section className='flashcards-workspace'>
                 {!testStarted && <FlashcardsConfig onTestStart={startTestHandler} dictionary={props.dictionary}></FlashcardsConfig>}
-                {testStarted && <FlashcardTest onTestFinish = {finishTestHandler} config ={testConfig} dictionary={selectedFlashcards}></FlashcardTest>}
+                {testStarted && <FlashcardTest onTestFinish = {finishTestHandler}  config ={testConfig} dictionary={selectedFlashcards}></FlashcardTest>}
             </section>
             )
     }
